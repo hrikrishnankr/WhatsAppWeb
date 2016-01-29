@@ -3,4 +3,7 @@ var Header = Backbone.View.extend({
 	render : function(){
 		return this;
 	},
+	addClass : function(className){
+		this.$el.addClass(className);
+	},
 });

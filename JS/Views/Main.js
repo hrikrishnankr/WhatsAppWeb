@@ -1,6 +1,7 @@
 var Main = Backbone.View.extend({
 	tagName : "main",
-	render : function(){
+	render : function(className){
+		this.$el.addClass(className);
 		return this;
 	},
 });
