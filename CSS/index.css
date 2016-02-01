@@ -19,3 +19,50 @@
 .mdl-layout__tab-bar{
 	background:#00745e;
 }
+
+.material-icons{
+	font-size:14px;
+}
+
+.mdl-badge[data-badge]:after{
+	background:#fff;
+	color:#00745e;
+}
+
+table{
+	width: 100%;
+}
+
+table tr:hover{
+	opacity: 0.7;
+}
+
+.contact_img{
+	height: 60px;
+	width: 60px;
+	border-radius: 60px;
+	padding: 5px;
+}
+
+.imgDiv{
+	width: 30%;
+}
+
+.detailsDiv{
+	width: 70%;
+	border-bottom: 0.7px solid #d3d3d3; 
+}
+
+.name{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.device{
+	float: right;
+	color: gray;
+}
+
+.status{
+	color: gray;
+}

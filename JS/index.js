@@ -8,11 +8,9 @@ $(document).ready(function(){
 			$(".mdl-layout__header-row").show();
 			$(".mdl-layout__header").css("min-height","56px");
 			$(".mdl-layout__tab-bar-container").show();
-			console.log("up");
    		 } else {
 			$(".mdl-layout__header-row").hide();
 			$(".mdl-layout__header").css("min-height","48px");
-			console.log("down");
    		 }   
 		this.previousTop = currentTop;   		
   });
