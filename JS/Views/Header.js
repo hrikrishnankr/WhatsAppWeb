@@ -6,4 +6,7 @@ var Header = Backbone.View.extend({
 	addClass : function(className){
 		this.$el.addClass(className);
 	},
+	addID:function(id){
+		this.$el.attr('id',id);
+	}
 });
