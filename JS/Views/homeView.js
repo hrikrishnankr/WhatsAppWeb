@@ -32,7 +32,11 @@ var TR=Backbone.View.extend({
 	tagName:'tr',
 	initialize:function(){
 	},
+	events:{
+
+	},
 	render:function(){		
+		this.$el.attr("onclick",'').click(new Function("app_router.navigate('#contacts/"+this.model.get('id')+"', {trigger: true, replace: true});"));
 		var imgTd = new TD({ img : this.model.get('imgUrl')});
 		var detailsTd = new TD({
 			name : this.model.get('name'),
@@ -54,22 +58,12 @@ var TABLE = Backbone.View.extend({
 	initialize : function(){
 
 	},
-	allRender:function(type){
-
-		if(type=="contacts"){
+	allRender:function(){
 			this.$el.empty();
 			this.collection.each(function(mod) {
 				var tr=new TR({model:mod});
 				this.$el.append(tr.render().el);
 			}, this);
-		} else if(type=="chats"){
-
-		} else if(type=="calls"){
-
-		}else{
-			//nothing
-		}
-
 		return this;
 	},
 	render:function(){
@@ -83,6 +77,7 @@ var HomeView=Backbone.View.extend({
 		this.options=options;
 	},
 	render:function(){
+		this.remove();
 		var div1 = addDiv( this , "mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs");
 			var header1 = addHeader( div1.render() , "mdl-layout__header mdl-layout__header--waterfall");
 		
@@ -90,7 +85,7 @@ var HomeView=Backbone.View.extend({
 					var span1 = addSpan( div2.render(), "mdl-layout-title");
 					span1.render().$el.html("WhatsApp");
 				var div3 = addDiv( header1.render() , "mdl-layout__tab-bar mdl-js-ripple-effect");
-					var a1 = addA( div3.render(), "mdl-layout__tab is-active");
+					var a1 = addA( div3.render(), "mdl-layout__tab");
 					a1.render().$el.attr("href","#fixed-tab-1");
 					a1.render().$el.html("CALLS");
 					
@@ -98,28 +93,29 @@ var HomeView=Backbone.View.extend({
 					a2.render().$el.attr("href","#fixed-tab-2");
 					a2.render().$el.html("CHATS");
 					
-					var a3 = addA( div3.render(), "mdl-layout__tab");
+					var a3 = addA( div3.render(), "mdl-layout__tab is-active");
 					a3.render().$el.attr("href","#fixed-tab-3");
 					a3.render().$el.html("CONTACTS");
 
 		 	var main = addMain( div1.render() , "mdl-layout__content");
 
-		 		var callSection = addSection( main.render() , "mdl-layout__tab-panel is-active");
+		 		var callSection = addSection( main.render() , "mdl-layout__tab-panel");
 		 		callSection.addID("fixed-tab-1");
 		 			var calls = addDiv( callSection.render() , "page-content");
 		 		var chatSection = addSection( main.render() , "mdl-layout__tab-panel");
 		 		chatSection.addID("fixed-tab-2");
 		 			var chats = addDiv( chatSection.render() , "page-content");
-		 		var contactSection = addSection( main.render() , "mdl-layout__tab-panel");
+		 		var contactSection = addSection( main.render() , "mdl-layout__tab-panel is-active");
 		 		contactSection.addID("fixed-tab-3");
 		 			var contacts = addDiv( contactSection.render() , "page-content");
 
 		 	var contactsTable = new TABLE({
 		 		collection : this.options.collections.contacts
 		 	});
-		 	contacts.render().$el.append(contactsTable.allRender("contacts").el);
+		 	contacts.render().$el.append(contactsTable.allRender().el);
+		 	componentHandler.upgradeDom();
 	},
 	remove : function(){
-		this.$el.empty().detach();
+		this.$el.empty();
 	}
 });

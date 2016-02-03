@@ -4,7 +4,8 @@
 
 .mdl-layout__header-row{
   width:100%;
-  padding:20px;
+  padding:10px;
+  position: relative;
 }
 .mdl-layout.is-upgraded .mdl-layout__tab.is-active::after{
 	height:1px;
@@ -66,4 +67,86 @@ table tr:hover{
 
 .status{
 	color: gray;
+}
+
+.instant_chat_img{
+	height: 32px;
+	width: 32px;
+	border-radius: 32px;
+	padding: 5px;
+}
+
+.back_div i{
+	cursor: pointer;
+	padding-top: 5px;
+	font-size: 32px;
+}
+
+.meassge_show{
+	overflow:auto;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 56px;
+	background: url("../images/chat-background.jpg");
+}
+
+.message_insert{
+	background: url("../images/chat-background.jpg");
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 56px;
+	padding: 5px;
+}
+
+
+.message_div{
+	background: #fff;
+	display: inline-block;
+	height: 50px;
+	width: 75%;
+	position: relative;
+	bottom: -5px;
+}
+
+.message_div i{
+	font-size: 24px;
+	padding-top: 14px;
+}
+
+.message_div .message_input{
+	width: 75%;
+	position: relative;
+	top: -8px;
+	height: 26px;
+	border:none;
+	outline: 0;
+}
+#camera_alt{
+	float: right;
+	margin-right: 8px;
+}
+
+.bubble_pointer{
+	display: inline-block;
+}
+.record_and_send{
+	display: inline-block;
+}
+
+.record_and_send{
+	height: 40px;
+	width: 40px;
+	border-radius: 50px;
+	background-color: #00745e;
+	margin-top:10px;
+	float: right;
+}
+
+.record_and_send i{
+	color: white;
+	font-size: 26px;
+	margin-top: 6px;
+	margin-left: 9px;
 }

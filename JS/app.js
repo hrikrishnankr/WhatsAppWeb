@@ -49,11 +49,23 @@ var contacts=new contactsCollection([{
 	'phoneNumber':"9646116312",
 }]);
 
-
-var homeView=new HomeView({
-	collections :{ 
-		contacts: contacts
-	}
+var app_router = new AppRouter();
+var homeView, instantChat;
+app_router.on('route:defaultRoute', function() {
+    homeView = new HomeView({
+		collections :{ 
+			contacts: contacts
+		}
+	});
+	homeView.render();
 });
 
-homeView.render();
+app_router.on('route:newChat', function(id) {
+	var model = contacts.get(id);
+    instantChat = new InstantChat({
+    	model : model
+    });
+    instantChat.render();
+});
+
+Backbone.history.start();

@@ -5,7 +5,6 @@ var contactsModel=Backbone.Model.extend({
 		'phoneNumber':"999999999",
 		'imgUrl':"",
 	},
-	urlRoot : '/Users'
 });
 
 var contactsCollection=Backbone.Collection.extend({
