@@ -108,11 +108,15 @@ table tr:hover{
 	width: 75%;
 	position: relative;
 	bottom: -5px;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .message_div i{
 	font-size: 24px;
 	padding-top: 14px;
+	color:gray;
 }
 
 .message_div .message_input{
@@ -130,23 +134,25 @@ table tr:hover{
 
 .bubble_pointer{
 	display: inline-block;
+	height: 0px;
+	width: 0px;
+	border-bottom: 20px solid #fff;
+	border-left: 20px solid transparent;
+	/*webkit-transform: rotate(90deg);*/
+    transform: rotate(180deg);
+    vertical-align: top;
+    margin-top: 5px;
 }
 .record_and_send{
 	display: inline-block;
+	float: right;
 }
 
-.record_and_send{
-	height: 40px;
-	width: 40px;
-	border-radius: 50px;
+.record_and_send button, .record_and_send button:hover{
 	background-color: #00745e;
-	margin-top:10px;
-	float: right;
 }
 
 .record_and_send i{
 	color: white;
-	font-size: 26px;
-	margin-top: 6px;
-	margin-left: 9px;
+	font-size: 24px;
 }
